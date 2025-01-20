@@ -66,4 +66,5 @@ require 'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
 vim.cmd('autocmd BufEnter * cd %:p:h')
