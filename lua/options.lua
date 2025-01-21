@@ -14,7 +14,6 @@ vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizon
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 -- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
-vim.opt.showmode = true -- we are experienced, wo don't need the "-- INSERT --" mode hint
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered
 vim.opt.hlsearch = false
@@ -29,7 +28,7 @@ vim.opt.showmode = false
 --vim.opt.showcmd = false
 
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 if vim.g.neovide then
     vim.g.neovide_hide_mouse_when_typing = true
