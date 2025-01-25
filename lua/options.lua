@@ -38,9 +38,5 @@ if vim.g.neovide then
     vim.g.neovide_padding_bottom = 0
     vim.g.neovide_padding_right = 0
     vim.g.neovide_padding_left = 0
-<<<<<<< HEAD
-=======
-    -- vim.o.guifont = "FiraCode Nerd Font:h14" -- text below applies for VimScript
->>>>>>> 80093baac7b1c77758890667a4c40659eb39f1fa
     vim.o.guifont = "JetBrainsMono Nerd Font:h14" -- text below applies for VimScript
 end
