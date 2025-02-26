@@ -1,7 +1,7 @@
 -- ~/.config/nvim/lua/plugins/hexo_post.lua
 local M = {}
 
-local blog_dir = "/home/mengh04/Blog"
+local blog_dir = "/home/mengh04/FileSync/Blog"
 local posts_dir = blog_dir .. "/source/_posts/2025/"
 
 -- 执行命令的通用函数（在终端中运行命令）
