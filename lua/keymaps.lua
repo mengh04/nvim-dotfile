@@ -11,7 +11,6 @@ vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
 
-
 -- 在 normal 模式下，使用 <leader>j 和 <leader>k 来移动行
 vim.keymap.set('n', '<M-k>', ':m .-2<CR>', opts )
 vim.keymap.set('n', '<M-j>', ':m .+1<CR>', opts )
@@ -23,8 +22,6 @@ vim.keymap.set('v', '<M-j>', ":m '>+1<CR>`<my`>mzgv`yo`z", opts )
 vim.keymap.set('v', '<M-k>', ":m '<-2<CR>`>my`<mzgv`yo`z", opts )
 vim.keymap.set('v', '<M-Down>', ":m '>+1<CR>`<my`>mzgv`yo`z", opts )
 vim.keymap.set('v', '<M-Up>', ":m '<-2<CR>`>my`<mzgv`yo`z", opts )
-
-
 
 
 
@@ -42,24 +39,8 @@ vim.keymap.set('n', '<leader>jt', ':lua vim.lsp.buf.type_definition()<CR>', opts
 vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', opts)
 
 
-
-
-
-
-
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 
-
-
-
--- 调试
-vim.keymap.set('n', '<leader>b', ':DapToggleBreakpoint<CR>', opts)
-vim.keymap.set('n', '<F5>', ':DapContinue<CR>', opts)
-vim.keymap.set('n', '<F6>', ':DapStepOver<CR>', opts)
-vim.keymap.set('n', '<F7>', ':DapStepInto<CR>', opts)
-vim.keymap.set('n', '<F8>', ':DapStepOut<CR>', opts)
-vim.keymap.set('n', '<F12>', ':DapTerminate<CR>', opts)
-vim.keymap.set('n', '<F9>', ':w|!clang++ \"%\" -g -o debug.exe<CR>', opts)
 
 -- 测试点相关的
 
@@ -78,13 +59,14 @@ vim.keymap.set('n', '<leader>//', ':Telescope live_grep<CR>', opts)
 vim.keymap.set('n', '<leader>/', ':Telescope<CR>', opts)
 
 
-vim.keymap.set('n', '<leader>q', ":Dashboard<CR>, opts")
+vim.keymap.set('n', '<leader>q', ":Dashboard<CR>", opts)
 
 
 
-vim.keymap.set('n', '<leader>x', ":BufferClose<CR>, opts")
-vim.keymap.set('n', '<leader><S-x>', "BufferCloseAllButCurrent<CR>, opts")
+vim.keymap.set('n', '<leader>x', ":BufferClose<CR>", opts)
+vim.keymap.set('n', '<leader><S-x>', ":BufferCloseAllButCurrent<CR>", opts)
 
+vim.keymap.set('n', '<F5>', ":OverseerRun<CR>", opts)
 
 if vim.g.neovide then
     vim.keymap.set({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
