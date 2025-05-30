@@ -7,7 +7,6 @@ local i = ls.insert_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
--- 定义 C++ 代码片段
 ls.add_snippets("cpp", {
     s("acm", {
         t({ "#include <bits/stdc++.h>",
@@ -15,7 +14,8 @@ ls.add_snippets("cpp", {
             "using i64 = long long;",
             "",
             "int main() {",
-            "\tios::sync_with_stdio(false); cin.tie(nullptr);",
+            "\tcin.tie(nullptr);",
+            "\tios::sync_with_stdio(false);",
             "",
             "\t" }), i(1), -- 插入点 1
         t({ "", "",
@@ -32,7 +32,8 @@ ls.add_snippets("cpp", {
         t({ "", "\t" }), i(1, ""),
         t({ "", "}", "" }),
         t({ "", "int main() {",
-            "\tios::sync_with_stdio(false); cin.tie(nullptr);" }),
+            "\tcin.tie(nullptr);",
+            "\tios::sync_with_stdio(false);" }),
         t({ "", "\tint t; cin >> t;" }),
         t({ "", "\twhile (t--) { solve(); }" }),
         t({ "", "\treturn 0;", }),
@@ -75,49 +76,37 @@ ls.add_snippets("cpp", {
             "\t}",
             "};", })
     }),
-    s("dijkstra", {
-        t({ "vector<i64> Dijkstra(int n, int start, vector<vector<pair<int, i64>>> & adj) {",
-            "\tvector<i64> dis(n, -1);",
-            "\tpriority_queue<pair<i64, int>, vector<pair<i64, int>>, greater<>> q;",
-            "\tq.emplace(0, start);",
-            "\twhile (q.size()) {",
-            "\t\tauto [d, x] = q.top(); q.pop();",
-            "\t\tif (dis[x] != -1) continue;",
-            "\t\tdis[x] = d;",
-            "\t\tfor (auto [y, w] : adj[x]) {",
-            "\t\t\tq.emplace(w + d, y);",
-            "\t\t}",
-            "\t}",
-            "\treturn dis;",
-            "}" })
-    }),
-    s("spfa", {
+    s("FenwickTree", {
         t({
-            "bool spfa(int n, vector<vector<pair<int, i64>>> & adj) {",
-            "\tvector<int> dis(n, inf);",
-            "\tvector<bool> in_queue(n);",
-            "\tvector<int> cnt(n);",
-            "\tqueue<int> q;",
-            "\tq.push(0);",
-            "\tdis[0] = 0;",
-            "\tin_queue[0] = true;",
-            "\twhile (q.size()) {",
-            "\t\tint from = q.front(); q.pop();",
-            "\t\tin_queue[from] = false;",
-            "\t\tfor (auto [to, w] : adj[from]) {",
-            "\t\t\tif (dis[to] > dis[from] + w) {",
-            "\t\t\t\tdis[to] = dis[from] + w;",
-            "\t\t\t\tif (!in_queue[to]) {",
-            "\t\t\t\t\tq.push(to);",
-            "\t\t\t\t\tin_queue[to] = true;",
-            "\t\t\t\t\tcnt[to] ++;",
-            "\t\t\t\t\tif (cnt[to] == n) return true;",
-            "\t\t\t\t}",
-            "\t\t\t}",
-            "\t\t}",
-            "\t}",
-            "\treturn false;",
-            "};"
+                "template<typename T>",
+                "struct FenwickTree {",
+                "    vector<T> a;",
+                "    int n;",
+                "",
+                "    FenwickTree(int size) : n(size) {",
+                "        a.assign(n, 0);",
+                "    }",
+                "",
+                "    int lowbit(int x) {",
+                "        return x & -x;",
+                "    }",
+                "",
+                "    void update(int x, T d) {",
+                "        while (x <= n) {",
+                "            a[x] += d;",
+                "            x += lowbit(x);",
+                "        }",
+                "    }",
+                "",
+                "    T query(int x) {",
+                "        T res = 0;",
+                "        while (x > 0) {",
+                "            res += a[x];",
+                "            x -= lowbit(x);",
+                "        }",
+                "        return res;",
+                "    }",
+                "};"
         })
     }),
 })
