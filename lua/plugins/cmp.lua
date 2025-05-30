@@ -4,10 +4,6 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'saadparwaiz1/cmp_luasnip',
-
-
-
-
     {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -21,14 +17,12 @@ return {
                 sources = cmp.config.sources(
                     {
                         { name = 'nvim_lsp' },
-
                         { name = 'luasnip' },
                     },
                     {
                         { name = 'buffer' },
                         { name = 'path' }
                     }),
-
                 formatting = {
                     -- format = lspkind.cmp_format({
                     --   with_text = true,
