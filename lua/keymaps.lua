@@ -30,8 +30,6 @@ vim.keymap.set('v', '<M-Up>', ":m '<-2<CR>`>my`<mzgv`yo`z", opts )
 vim.keymap.set('n', '<leader>hh', ':Lspsaga code_action<CR>', opts)
 vim.keymap.set('n', '<leader>hi', ':Lspsaga hover_doc<CR>', opts)
 vim.keymap.set('n', '<leader>r', ':Lspsaga term_toggle<CR>', opts)
---vim.keymap.set('n', '<leader>hh', ':Lspsaga <CR>', opts)
---vim.keymap.set('n', '<leader>hh', ':Lspsaga code_action<CR>', opts)
 
 vim.keymap.set('n', '<leader>js', ':lua vim.lsp.buf.declaration()<CR>', opts)
 vim.keymap.set('n', '<leader>jd', ':lua vim.lsp.buf.definition()<CR>', opts)
@@ -43,7 +41,6 @@ vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 
 
 -- 测试点相关的
-
 vim.keymap.set('n', '<leader>g', ':CompetiTest receive problem<CR>', opts)
 vim.keymap.set('n', '<leader>tt', ':CompetiTest run<CR>', opts)
 vim.keymap.set('n', '<leader>ta', ':CompetiTest add_testcase<CR>', opts)

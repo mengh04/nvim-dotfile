@@ -16,7 +16,7 @@ ls.add_snippets("cpp", {
             "\tcin.tie(nullptr);",
             "\tios::sync_with_stdio(false);",
             "",
-            "\t" }), i(1), -- 插入点 1
+            "\t" }), i(1),
         t({ "", "",
             "\treturn 0;",
             "",
@@ -202,7 +202,7 @@ ls.add_snippets("cpp", {
             "        sum += t.add * len;",
             "    }",
             "};",
-            "Info operator + (const Info & a, const Info & b) {",
+            "Info operator+(const Info & a, const Info & b) {",
             "    return {a.sum + b.sum, a.len + b.len};",
             "}"
         })
