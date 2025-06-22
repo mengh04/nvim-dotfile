@@ -57,7 +57,6 @@ return {
                         height = 0.5,
                         show_nu = true,
                         show_rnu = false,
-                        close_mappings = { "q", "Q" },
                     },
                 },
                 popup_ui = {
@@ -92,7 +91,6 @@ return {
                 compile_command = {
                     c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
                     cpp = { exec = "g++", args = {"-Wall", "-std=c++23", "$(FNAME)", "-o", "debug.exe"} },
-                    -- cpp = { exec = "clang++", args = {"-Wall", "-stdlib=libstdc++" , "-std=c++23", "$(FNAME)", "-o", "debug.exe"} },
                     rust = { exec = "rustc", args = { "$(FNAME)" } },
                     java = { exec = "javac", args = { "$(FNAME)" } },
                 },
@@ -122,7 +120,7 @@ return {
                 evaluate_template_modifiers = false,
                 date_format = "%c",
                 received_files_extension = "cpp",
-                received_problems_path = "D:/FileSync/acm/Problems/$(PROBLEM).$(FEXT)",
+                received_problems_path = "/mnt/d/FileSync/acm/Problems/$(PROBLEM).$(FEXT)",
                 received_problems_prompt_path = true,
                 received_contests_directory = "$(HOME)/Documents/Contests",
                 received_contests_problems_path = "$(PROBLEM).$(FEXT)",
