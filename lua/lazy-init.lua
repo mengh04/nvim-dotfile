@@ -14,8 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require("snippets.cpp");
-
 require("mason").setup()
 require("mason-lspconfig").setup()
 
