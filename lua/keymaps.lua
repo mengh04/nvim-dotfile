@@ -29,11 +29,8 @@ vim.keymap.set('v', '<M-Up>', ":m '<-2<CR>`>my`<mzgv`yo`z", opts )
 
 vim.keymap.set('n', '<leader>hh', ':Lspsaga code_action<CR>', opts)
 vim.keymap.set('n', '<leader>hi', ':Lspsaga hover_doc<CR>', opts)
-vim.keymap.set('n', '<leader>r', ':Lspsaga term_toggle<CR>', opts)
+vim.keymap.set('n', '<leader>e', ':Lspsaga show_buf_diagnostics<CR>', opts)
 
-vim.keymap.set('n', '<leader>js', ':lua vim.lsp.buf.declaration()<CR>', opts)
-vim.keymap.set('n', '<leader>jd', ':lua vim.lsp.buf.definition()<CR>', opts)
-vim.keymap.set('n', '<leader>jt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
 vim.keymap.set('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', opts)
 
 
@@ -64,6 +61,7 @@ vim.keymap.set('n', '<leader>x', ":BufferClose<CR>", opts)
 vim.keymap.set('n', '<leader><S-x>', ":BufferCloseAllButCurrent<CR>", opts)
 
 vim.keymap.set('n', '<F5>', ":OverseerRun<CR>", opts)
+
 
 if vim.g.neovide then
     vim.keymap.set({ "n", "v" }, "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", opts)
