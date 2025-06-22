@@ -8,6 +8,8 @@ local modules = {
     "snippets.cpp.FenwickTree",
     "snippets.cpp.LazySegmentTree",
     "snippets.cpp.SegmentTree",
+    "snippets.cpp.power",
+    "snippets.spp.BKDRHash",
 }
 
 for _, mod in ipairs(modules) do
