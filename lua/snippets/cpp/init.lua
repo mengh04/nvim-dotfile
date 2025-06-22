@@ -9,7 +9,7 @@ local modules = {
     "snippets.cpp.LazySegmentTree",
     "snippets.cpp.SegmentTree",
     "snippets.cpp.power",
-    "snippets.spp.BKDRHash",
+    "snippets.cpp.BKDRHash",
 }
 
 for _, mod in ipairs(modules) do
