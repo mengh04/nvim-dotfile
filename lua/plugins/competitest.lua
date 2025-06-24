@@ -1,6 +1,7 @@
 return {
     {
-        'xeluxee/competitest.nvim',
+        'mengh04/competitest.nvim',
+        branch = 'my-feature',
         dependencies = 'MunifTanjim/nui.nvim',
         config = function()
             require('competitest').setup {
@@ -57,6 +58,7 @@ return {
                         height = 0.5,
                         show_nu = true,
                         show_rnu = false,
+
                     },
                 },
                 popup_ui = {
@@ -90,14 +92,14 @@ return {
                 compile_directory = ".",
                 compile_command = {
                     c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-                    cpp = { exec = "g++", args = {"-Wall", "-std=c++23", "$(FNAME)", "-o", "debug.exe"} },
+                    cpp = { exec = "g++", args = {"-Wall", "-std=c++23", "$(FNAME)", "-o", "output.exe"} },
                     rust = { exec = "rustc", args = { "$(FNAME)" } },
                     java = { exec = "javac", args = { "$(FNAME)" } },
                 },
                 running_directory = ".",
                 run_command = {
                     c = { exec = "./$(FNOEXT)" },
-                    cpp = { exec = "./debug.exe" },
+                    cpp = { exec = "./output.exe" },
                     rust = { exec = "./$(FNOEXT)" },
                     python = { exec = "python", args = { "$(FNAME)" } },
                     java = { exec = "java", args = { "$(FNOEXT)" } },
