@@ -51,6 +51,8 @@ return {
                         view_stdout = { "o", "O" },
                         view_stderr = { "e", "E" },
                         toggle_diff = { "d", "D" },
+                        edit_testcase = "<CR>",
+                        delete_testcase = "x",
                         close = { "q", "Q" },
                     },
                     viewer = {
