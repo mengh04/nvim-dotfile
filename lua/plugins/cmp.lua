@@ -8,6 +8,7 @@ return {
         'hrsh7th/nvim-cmp',
         config = function()
             local cmp = require('cmp')
+            local luasnip = require('luasnip')
             cmp.setup {
                 snippet = {
                     expand = function(args)
@@ -16,23 +17,11 @@ return {
                 },
                 sources = cmp.config.sources(
                     {
-                        { name = 'nvim_lsp' },
                         { name = 'luasnip' },
-                    },
-                    {
                         { name = 'buffer' },
                         { name = 'path' }
                     }),
-                formatting = {
-                    -- format = lspkind.cmp_format({
-                    --   with_text = true,
-                    -- maxwidth = 50,
-                    -- before = function(entry, vim_item)
-                    --    vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-                    --  return vim_item
-                    -- end
-                    --})
-                },
+                formatting = {},
 
                 mapping = {
 
@@ -43,10 +32,9 @@ return {
                     ['<Tab>'] = cmp.mapping.confirm({
                         select = true,
                         behavior = cmp.ConfirmBehavior.Replace
-                    })
+                    }),
                 }
             }
         end,
     },
 }
-
