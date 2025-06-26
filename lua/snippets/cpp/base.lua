@@ -170,51 +170,51 @@ return {
 
     -- 算法相关
     s("sort", {
-        t("sort("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end());")
+        t("sort("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end());")
     }),
 
     s("reverse", {
-        t("reverse("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end());")
+        t("reverse("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end());")
     }),
 
     s("unique", {
-        t("unique("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end())")
+        t("unique("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end())")
     }),
 
     s("lower_bound", {
-        t("lower_bound("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
+        t("lower_bound("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
     }),
 
     s("upper_bound", {
-        t("upper_bound("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
+        t("upper_bound("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
     }),
 
     s("binary_search", {
-        t("binary_search("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
+        t("binary_search("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(")")
     }),
 
     s("next_permutation", {
-        t("next_permutation("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end())")
+        t("next_permutation("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end())")
     }),
 
     s("prev_permutation", {
-        t("prev_permutation("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end())")
+        t("prev_permutation("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end())")
     }),
 
     s("max_element", {
-        t("max_element("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end())")
+        t("max_element("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end())")
     }),
 
     s("min_element", {
-        t("min_element("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end())")
+        t("min_element("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end())")
     }),
 
     s("accumulate", {
-        t("accumulate("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "0"), t(")")
+        t("accumulate("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "0"), t(")")
     }),
 
     s("fill", {
-        t("fill("), i(1, "v"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(");")
+        t("fill("), i(1, "a"), t(".begin(), "), extras.rep(1), t(".end(), "), i(2, "val"), t(");")
     }),
 
     -- 输入输出
