@@ -6,7 +6,7 @@ return {
 
     -- vector相关
     s("vector", {
-        t("vector<"), i(1, "int"), t("> "), i(2, "v"), t(";")
+        t("vector<"), i(1, "int"), t("> "), i(2, "a"), t(";")
     }),
 
     s("push_back", {
