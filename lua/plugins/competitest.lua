@@ -120,19 +120,20 @@ return {
 
                 companion_port = 27121,
                 receive_print_message = false,
+                start_receiving_persistently_on_setup = false,
                 template_file = false,
                 evaluate_template_modifiers = false,
                 date_format = "%c",
                 received_files_extension = "cpp",
                 received_problems_path = "/mnt/d/FileSync/acm/Problems/$(PROBLEM).$(FEXT)",
                 received_problems_prompt_path = true,
-                received_contests_directory = "$(HOME)/Documents/Contests",
+                received_contests_directory = "/mnt/d/FileSync/acm/Contests/$(CONTEST)",
                 received_contests_problems_path = "$(PROBLEM).$(FEXT)",
                 received_contests_prompt_directory = true,
-                received_contests_prompt_extension = true,
+                received_contests_prompt_extension = false,
                 open_received_problems = true,
                 open_received_contests = true,
-                replace_received_testcases = true,
+                replace_received_testcases = false,
             }
         end,
     }

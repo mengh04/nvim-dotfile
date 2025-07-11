@@ -493,4 +493,10 @@ return {
         t("memcpy("), i(1, "dest"), t(", "), i(2, "src"), t(", "), i(3, "size"), t(");")
     }),
 
+    s("is_sorted", {
+        t("is_sorted("), i(1, "first"), t(", "), i(2, "last"), t(")")
+    }),
+
+
+
 }

@@ -17,9 +17,11 @@ return {
                 },
                 sources = cmp.config.sources(
                     {
+                        { name = 'friendly-snippets' },
                         { name = 'luasnip' },
                         { name = 'buffer' },
-                        { name = 'path' }
+                        { name = 'path' },
+                        { name = 'nvim-lsp' },
                     }),
                 formatting = {},
 

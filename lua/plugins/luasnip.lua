@@ -1,6 +1,7 @@
 return {
     {
         "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
         version = "v2.*",                -- 使用最新的 v2 版本
         build = "make install_jsregexp", -- 安装 jsregexp（可选）
 

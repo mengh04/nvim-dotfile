@@ -38,6 +38,7 @@ vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 
 -- 测试点相关的
 vim.keymap.set('n', '<leader>g', ':CompetiTest receive problem<CR>', opts)
+vim.keymap.set('n', '<leader>c', ':CompetiTest receive contest<CR>', opts)
 vim.keymap.set('n', '<leader>tt', ':CompetiTest run<CR>', opts)
 vim.keymap.set('n', '<leader>ta', ':CompetiTest add_testcase<CR>', opts)
 vim.keymap.set('n', '<leader>te', ':CompetiTest edit_testcase<CR>', opts)
@@ -80,7 +81,9 @@ vim.keymap.set({ "i", "s" }, "<C-k>", function()
   end
 end, opts)
 
-
+-- buffer 相关
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', ':BufferPrevious<CR>', opts)
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-x>', ':BufferNext<CR>', opts)
 
 
 if vim.g.neovide then
