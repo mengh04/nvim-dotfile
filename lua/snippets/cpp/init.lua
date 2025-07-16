@@ -10,8 +10,7 @@ local modules = {
     "snippets.cpp.SegmentTree",
     "snippets.cpp.power",
     "snippets.cpp.BKDRHash",
-    "snippets.cpp.define",
-    "snippets.cpp.base"
+    "snippets.cpp.FHQTreap",
 }
 
 for _, mod in ipairs(modules) do

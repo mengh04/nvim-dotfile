@@ -22,4 +22,4 @@ lspconfig['clangd'].setup({})
 lspconfig['pylsp'].setup({})
 lspconfig['lua_ls'].setup({})
 -- lspconfig['rust_analyzer'].setup({
--- vim.cmd('autocmd BufEnter * cd %:p:h')
+vim.cmd('autocmd BufEnter * cd %:p:h')
