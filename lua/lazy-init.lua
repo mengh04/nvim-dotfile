@@ -14,12 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-local lspconfig = require('lspconfig')
-lspconfig['clangd'].setup({})
-lspconfig['pylsp'].setup({})
-lspconfig['lua_ls'].setup({})
 -- lspconfig['rust_analyzer'].setup({
 vim.cmd('autocmd BufEnter * cd %:p:h')
