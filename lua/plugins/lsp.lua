@@ -23,7 +23,7 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(args)
                     local buf = args.buf
-                    vim.api.nvim_buf_set_keymap(buf, 'n', '<C-l>', "<cmd>lua vim.lsp.buf.format()<CR>",
+                    vim.api.nvim_buf_set_keymap(buf, 'n', '<C-s>', "<cmd>lua vim.lsp.buf.format()<CR>",
                         { noremap = true })
                 end,
             })
