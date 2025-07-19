@@ -12,7 +12,7 @@ return {
             -- 在普通模式下，终端窗口的背景会变暗，让你更专注于代码
             shade_terminals = true,
             -- 当终端任务结束时，自动关闭终端窗口
-            close_on_exit = false,
+            close_on_exit = true,
             -- 设置默认的 shell，如果你在用 powershell 或其他 shell
             -- shell = vim.o.shell,
 
@@ -27,13 +27,11 @@ return {
         keys = {
             -- 这是主要的终端开关，用 Ctrl + ` (反引号)
             -- 注意：在 lua 中需要转义，所以写成 '<C-`>'
-            { '<C-`>',      '<cmd>ToggleTerm<CR>',                             desc = 'Toggle Main Terminal' },
+            { "<leader>'",      '<cmd>ToggleTerm<CR>',                             desc = 'Toggle Main Terminal' },
 
             -- 创建一个专用的 Lazygit 终端！
             { '<leader>gg', '<cmd>lua lazygit_toggle()<CR>',                   desc = 'Toggle Lazygit' },
 
-            -- 创建一个垂直分屏的 Node.js 终端
-            { '<leader>tn', '<cmd>ToggleTerm direction=vertical cmd=node<CR>', desc = 'Toggle Node REPL' },
         },
         config = function(_, opts)
             -- 使用 opts 来进行标准设置

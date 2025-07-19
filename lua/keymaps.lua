@@ -7,9 +7,13 @@ local opts = {
 }
 
 vim.keymap.set('n', '<M-j>', ':m .+1<CR>', opts)
+vim.keymap.set('n', '<M-Down>', ':m .+1<CR>', opts)
 vim.keymap.set('n', '<M-k>', ':m .-2<CR>', opts)
+vim.keymap.set('n', '<M-Up>', ':m .-2<CR>', opts)
 vim.keymap.set('v', '<M-j>', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('v', '<M-Down>', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set('v', '<M-k>', ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set('v', '<M-Up>', ":m '<-2<CR>gv=gv", opts)
 
 
 vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)

@@ -11,6 +11,10 @@ return {
         { '<leader>e', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' }
     },
     opts = {
+        -- 确保下面这两个选项都是 true！
+        disable_netrw = true,
+        hijack_netrw = true, -- 关键！这个选项让 nvim-tree 接管了老管家的工作
+
         -- 当你切换到一个缓冲区时，文件树会自动定位到那个文件，非常方便！
         update_focused_file = {
             enable = true,

@@ -1,17 +1,27 @@
+-- 在你的 barbar.lua 配置文件中
+
 return {
     {
         'romgrk/barbar.nvim',
         dependencies = {
-            -- 'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+            -- 'lewis6991/gitsigns.nvim',
+            'nvim-tree/nvim-web-devicons',
         },
         init = function() vim.g.barbar_auto_setup = false end,
+
+        -- 添加下面这一行！
+        event = 'VimEnter', -- 告诉 lazy.nvim 在进入 Neovim 时就加载
+
         opts = {
-            -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-            -- animation = true,
-            -- insert_at_start = true,
-            -- …etc.
+            -- 这里放你所有的配置...
+            animation = true,
+            -- ...
         },
-        version = '^1.0.0', -- optional: only update when a new 1.x version is released
+        keys = {
+            -- 这里放你所有的快捷键...
+            { '<A-,>', '<Cmd>BufferPrevious<CR>', desc = 'Prev buffer' },
+            { '<A-.>', '<Cmd>BufferNext<CR>',     desc = 'Next buffer' },
+            -- ...
+        },
     },
 }
