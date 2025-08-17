@@ -1,8 +1,8 @@
-local ls = require("luasnip")
-local ps = ls.parser.parse_snippet
+#include <bits/stdc++.h>
+using namespace std;
+using i64 = long long;
 
-return {
-    ps("LazySegmentTree", [[template<class Info, class Tag>
+template<class Info, class Tag>
 struct LazySegmentTree {
     int n;
     vector<Info> info;
@@ -70,5 +70,13 @@ struct Info {
 Info operator+(const Info &a, const Info &b) {
     return { a.sum + b.sum, a.sq + b.sq, a.len + b.len };
 }
-]]),
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    
+
+    return 0;
+
 }
