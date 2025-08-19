@@ -11,6 +11,8 @@ local modules = {
     "snippets.cpp.power",
     "snippets.cpp.BKDRHash",
     "snippets.cpp.FHQTreap",
+    "snippets.cpp.AhoCorasick",
+    "snippets.cpp.eular_phi",
 }
 
 for _, mod in ipairs(modules) do
