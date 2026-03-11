@@ -1,5 +1,38 @@
 return {
-  { "akinsho/flutter-tools.nvim", lazy = true }, -- add lsp plugin
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = true,
+    config = function()
+      require("flutter-tools").setup {
+        decorations = {
+          statusline = {
+            app_version = false,
+            device = true,
+          },
+        },
+        debugger = {
+          enabled = false,
+        },
+        dev_log = {
+          enabled = true,
+          filter = nil, -- optional callback to filter the log
+          -- takes a log_line as string argument; returns a boolean or nil;
+          -- the log_line is only added to the output if the function returns true
+          notify_errors = false, -- if there is an error whilst running then notify the user
+          open_cmd = "7split", -- command to use to open the log buffer
+          focus_on_open = true, -- focus on the newly opened log window
+        },
+        dev_tools = {
+          autostart = false, -- autostart devtools server if not detected
+          auto_open_browser = false, -- Automatically opens devtools in the browser
+        },
+        outline = {
+          open_cmd = "30vnew", -- command to use to open the outline buffer
+          auto_open = false, -- if true this will open the outline automatically when it is first populated
+        },
+      }
+    end,
+  }, -- add lsp plugin
   {
     "AstroNvim/astrolsp",
     ---@param opts AstroLSPOpts
@@ -10,9 +43,7 @@ return {
       opts = require("astrocore").extend_tbl(opts, {
         setup_handlers = {
           -- add custom handler
-          dartls = function(_, dartls_opts)
-            require("flutter-tools").setup({ lsp = dartls_opts })
-          end,
+          dartls = function(_, dartls_opts) require("flutter-tools").setup { lsp = dartls_opts } end,
         },
         config = {
           dartls = {

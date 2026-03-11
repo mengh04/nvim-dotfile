@@ -21,6 +21,7 @@ return {
         neovide_padding_bottom = 0,
         neovide_padding_right = 0,
         neovide_padding_left = 0,
+        neovide_hide_mouse_when_typing = true,
       },
     },
   },
