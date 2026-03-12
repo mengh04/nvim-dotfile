@@ -10,6 +10,8 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.dart" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   -- import/override with your plugins folder

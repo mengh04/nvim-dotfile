@@ -6,3 +6,4 @@ vim.opt.shell = "nu"
 vim.opt.shellcmdflag = "-c"
 vim.opt.shellquote = ""
 vim.opt.shellxquote = ""
+vim.opt.shellslash = true
