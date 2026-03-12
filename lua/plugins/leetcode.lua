@@ -72,7 +72,7 @@ path = "%s"
               file:close()
 
               -- 重启 LSP 以识别新生成的项目结构
-              vim.cmd "LspRestart rust_analyzer"
+              vim.cmd "RustAnalyzer restart"
             end
           end,
         },
