@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.sql" },
+  { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   -- import/override with your plugins folder

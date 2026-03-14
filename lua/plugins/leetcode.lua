@@ -8,6 +8,7 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
+      lang = "rust",
       cn = {
         enabled = true,
       },
