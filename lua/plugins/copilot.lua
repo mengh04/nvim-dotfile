@@ -1,9 +1,9 @@
 return {
-
+  enabled = true,
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   build = ":Copilot auth",
-  event = "BufReadPost",
+  event = "InsertEnter",
   opts = {
     suggestion = {
       auto_trigger = true,

@@ -4,16 +4,7 @@ return {
     ---@type AstroLSPOpts
     opts = {
       config = {
-        clangd = {
-          cmd = {
-            vim.fn.stdpath "data" .. "/mason/bin/clangd.cmd",
-            "--background-index",
-            "--query-driver=C:/msys64/ucrt64/bin/g++.exe",
-          },
-          capabilities = {
-            offsetEncoding = "utf-8",
-          },
-        },
+        clangd = {},
       },
     },
   },
