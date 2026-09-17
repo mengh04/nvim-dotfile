@@ -1,9 +1,27 @@
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
+--       as this provides autocomplete and documentation while editing your configuration
 
 ---@type LazySpec
+local function open_url_under_cursor()
+  local line = vim.fn.getline "."
+  local col = vim.fn.col "." - 1 -- 0-based column of the cursor
+  local pos = 1
+  while pos <= #line do
+    local s, e = line:find("https?://[^%s\"'<>()]+", pos)
+    if not s then break end
+    if col >= s - 1 and col < e then
+      local url = line:sub(s, e):gsub("[.,;:!?]+$", "")
+      vim.fn.jobstart({ "xdg-open", url }, { detach = true })
+      vim.notify("Opening " .. url, vim.log.levels.INFO)
+      return
+    end
+    pos = e + 1
+  end
+  vim.notify("No URL under cursor", vim.log.levels.WARN)
+end
+
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
@@ -43,6 +61,10 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        expandtab = true, -- use spaces instead of tabs
+        shiftwidth = 4, -- number of spaces for each indentation level
+        softtabstop = 4, -- number of spaces inserted or deleted with Tab/Backspace
+        tabstop = 4, -- number of spaces displayed for a tab
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -76,7 +98,22 @@ return {
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
+        ["<Leader>ua"] = false,
         -- ["<C-S>"] = false,
+
+        -- Ctrl + LeftClick: open the URL under the cursor in the browser
+        -- (default mapping jumps to tag, hence "No tags file" errors)
+        ["<C-LeftMouse>"] = {
+          open_url_under_cursor,
+          desc = "Open URL under cursor in browser",
+        },
+      },
+      i = {
+        ["<Tab>"] = "<Tab>",
+      },
+      t = {
+        -- toggleterm 2.13+ 不再默认提供 Esc 退出终端模式，需要手动映射
+        ["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" },
       },
     },
     rooter = {
@@ -101,8 +138,8 @@ return {
       },
       -- ignore things from root detection
       ignore = {
-        servers = {}, -- list of language server names to ignore (Ex. { "efm" })
-        dirs = {}, -- list of directory patterns (Ex. { "~/.cargo/*" })
+        servers = {}, -- list of language server names to ignore (Ex: { "efm" })
+        dirs = {}, -- list of directory patterns (Ex: { "~/.cargo/*" })
       },
       -- automatically update working directory (update manually with `:AstroRoot`)
       autochdir = false,

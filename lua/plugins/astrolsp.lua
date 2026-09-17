@@ -11,7 +11,7 @@ return {
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -27,6 +27,7 @@ return {
           "python",
           "rust",
           "sql",
+          "toml",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -43,28 +44,63 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      tombi = {},
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      basedpyright = {
+        -- 社区包默认把 pythonPath 钉在 exepath "python"（系统 python，没装 scapy 等项目依赖），
+        -- 改成自动向上找最近的 .venv，找不到再回退系统 python
+        before_init = function(_, config)
+          local bufname = vim.api.nvim_buf_get_name(0)
+          local venv = bufname ~= "" and vim.fs.find(".venv", { upward = true, path = vim.fs.dirname(bufname) })[1] or nil
+          local python = venv and venv .. "/bin/python" or vim.fn.exepath "python"
+          config.settings = config.settings or {}
+          config.settings.python = config.settings.python or {}
+          config.settings.python.pythonPath = python
+        end,
+        settings = {
+          basedpyright = {
+            analysis = {
+              diagnosticSeverityOverrides = {
+                -- 每个测试用例都故意复用 def func，这个规则对本项目纯属噪音
+                reportRedeclaration = "none",
+              },
+            },
+          },
+        },
+      },
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            check = { command = "check", extraArgs = {} },
+            check = {
+              -- 只检查当前 package（cargo check -p <pkg>），不要检查整个 workspace。
+              -- 避免工作区里其它维护不良的 crate 编译失败，拖垮当前项目的 LSP。
+              workspace = false,
+              command = "check",
+              extraArgs = {},
+            },
           },
         },
       },
     },
     -- customize how language servers are attached
     handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
+      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for the server
       -- function(server, opts) require("lspconfig")[server].setup(opts) end
 
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      -- AstroNvim 会遍历 mason 里装过的 server 全部启用（不走 mason-lspconfig 的 automatic_enable），
+      -- python 只保留 basedpyright，其余几个检查器禁用，避免同一错误重复报
+      taplo = false,
+      pyrefly = false,
+      ty = false,
+      ruff = false,
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
