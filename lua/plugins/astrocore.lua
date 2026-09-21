@@ -111,10 +111,7 @@ return {
       i = {
         ["<Tab>"] = "<Tab>",
       },
-      t = {
-        -- toggleterm 2.13+ 不再默认提供 Esc 退出终端模式，需要手动映射
-        ["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" },
-      },
+      t = {},
     },
     rooter = {
       -- list of detectors in order of prevalence, elements can be:

@@ -56,7 +56,7 @@ return {
     },
   },
   -- You can disable default plugins as follows:
-  -- { "max397574/better-escape.nvim", enabled = false },
+  { "max397574/better-escape.nvim", enabled = false }, -- 拒绝 jj/jk 邪教，Esc 就是 Esc
   --
   -- -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
