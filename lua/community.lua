@@ -18,6 +18,6 @@ return {
   { import = "astrocommunity.pack.prettier" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   -- import/override with your plugins folder
 }
