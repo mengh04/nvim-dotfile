@@ -23,6 +23,7 @@ return {
       { "<Leader>gF", ":'<,'>DiffviewFileHistory<CR>", mode = "v", desc = "Diffview 选中行历史" },
     },
     opts = {
+      preferred_adapter = "jj", -- jj 仓库（含 colocated）优先走 jj adapter；纯 git 仓库自动回退 git
       enhanced_diff_hl = true, -- 差异高亮增强（行内改动也着色）
       view = {
         default = { winbar_info = true }, -- winbar 显示当前对比的文件/rev
